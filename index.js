@@ -1,6 +1,7 @@
 import express from "express";
-import connectDB from "./database/connection.js";
 import dotenv from "dotenv";
+import connectDB from "./database/connection.js";
+
 
 const app = express();
 const port = 3000;
