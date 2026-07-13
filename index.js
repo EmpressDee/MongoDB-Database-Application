@@ -6,6 +6,7 @@ const app = express();
 const port = 3000;
 
 dotenv.config(); //put before connectDB
+
 connectDB();
 
 app.use(express.json());
