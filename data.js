@@ -23,7 +23,8 @@ const clients = await Client.insertMany([
     { name: "Annabelle Johnson", email: "anna_johnson@yahoo.com", phone: "917-555-0202"},
     { name: "Jim Halpert", email: "itsjim@aol.com", phone: "718-235-3470"},
     { name: "John Wick", email: "wick_john@gmail.com", phone: "347-235-4560"},
-    { name: "Harry Potter", email: "theboywholived@gmail.com", phone: "917-445-0727"}
+    { name: "Harry Potter", email: "theboywholived@gmail.com", phone: "917-445-0727"},
+    { name: "Ragnar Lothbrok", email: "vikingpride@gmail.com", phone: "718-555-0727"}
 
 ]);
 console.log(`${clients.length} clients data imported`);
@@ -40,7 +41,7 @@ const pets = await Pet.insertMany([
     { name: "Biscuit", species: "dog", breed: "Poodle", owner: clients[2]._id },
 ]);
 
-console.log(`${pets.length} pet data imported`)
+console.log(`${pets.length} pets data imported`)
 
 //appt data references pet[i]._id
  const appointments = await Appointment.insertMany([
@@ -53,11 +54,13 @@ console.log(`${pets.length} pet data imported`)
       { date: new Date("2026-07-26"), reason: "Shedding check", pet: pets[6]._id, status: "scheduled" },
       { date: new Date("2026-07-27"), reason: "Ear infection", pet: pets[7]._id, status: "scheduled" }
     ]);
-    console.log(`${appointments.length} appointment data imported`);
-
+    console.log(`${appointments.length} appointments data imported`);
+    process.exit(0);
         
     }catch (err) {
         console.error("Data import error:", err.message)
+        process.exit(1)
     }
 }
+ dataDB();
 
