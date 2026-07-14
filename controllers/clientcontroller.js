@@ -34,7 +34,7 @@ export const createClient = async (req, res) => {
 //patch
  export const updateClient = async (req,res) => {
     try {
-        const updated = await Client.findByIdAndUpdate(req.params.id. req.body, {
+        const updated = await Client.findByIdAndUpdate(req.params.id, req.body, {
             new: true,
             runValidators: true //need this so validation wont get bypassed. check mongoose ODM
         });

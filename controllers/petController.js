@@ -14,7 +14,7 @@ export const getPetById = async (req,res) =>{
     try {
         const pet = await Pet.findById(req.params.id);
         if (!pet) return res.status(404).json({error: "Pet not found"});
-        res.status(200).json(pet;
+        res.status(200).json(pet)
     } catch (err) {
         res.status(500).json({error: err.message})
     }
@@ -34,7 +34,7 @@ export const createPet = async (req, res) => {
 //patch
  export const updatePet = async (req,res) => {
     try {
-        const updated = await Pet.findByIdAndUpdate(req.params.id. req.body, {
+        const updated = await Pet.findByIdAndUpdate(req.params.id, req.body, {
             new: true,
             runValidators: true //need this so validation wont get bypassed. check mongoose ODM
         });
