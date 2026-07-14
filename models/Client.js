@@ -14,10 +14,15 @@ const clientSchema = new mongoose.Schema({
     type: String,
     required: true,
     trim: true
+
   },
  
 }, { timestamps: true });
 
+
+clientSchema.index({ email: 1}); //adding schema index 
+
 const Client = mongoose.model("Client", clientSchema);
+
 
 export default Client;

@@ -26,6 +26,8 @@ const apptSchema = new mongoose.Schema({
 
 }, {timestamps: true});
 
+apptSchema.index({date: 1 });
+
 const Appointment = mongoose.model("Appointment", apptSchema);
 
 export default Appointment;
