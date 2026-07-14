@@ -30,3 +30,17 @@ export const createClient = async (req, res) => {
     res.status(400).json({ error: err.message });
   }
 };
+
+//patch
+ export const updateClient = async (req,res) => {
+    try {
+        const updated = await Client.findByIdAndUpdate(req.params.id. req.body, {
+            new: true,
+            runValidators: true //need this so validation wont get bypassed. check mongoose ODM
+        });
+         if (!updated) return res.status(404).json({ error: "Client not found" });
+    res.status(200).json(updated);
+  } catch (err) {
+    res.status(400).json({ error: err.message });
+    }
+ }
